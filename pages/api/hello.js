@@ -1,5 +1,12 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import * as contentful from "contentful";
 
-export default function handler(req, res) {
-  res.status(200).json({ name: "John Doe" });
+export async function fetchArticles() {
+  const client = contentful.createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
+
+  const res = await client.getEntries({ content_type: "article" });
+
+  return res.items;
 }
