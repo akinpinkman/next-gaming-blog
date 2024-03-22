@@ -1,24 +1,25 @@
-import { fetchArticles } from "@/pages/api/hello";
+import { fetchArticlesAndGames } from "@/pages/api/hello";
 import Hero from "@/components/Hero";
 import LatestArticles from "@/components/LatestArticles";
 
-// NOT: MOST ANTICIPATED GAMES EKLE
-
 export async function getStaticProps() {
-  const articles = await fetchArticles();
+  const { articles, games } = await fetchArticlesAndGames();
+
   return {
     props: {
       articles,
+      games,
     },
   };
 }
 
-export default function Home({ articles }) {
+export default function Home({ articles, games }) {
   return (
     <main>
       <section>
         <Hero articles={articles} />
-        <LatestArticles articles={articles} />
+        <LatestArticles articles={articles} games={games} />
+        {/* <ReleaseDateTracker games={games} /> */}
       </section>
     </main>
   );
