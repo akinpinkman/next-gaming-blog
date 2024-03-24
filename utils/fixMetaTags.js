@@ -1,7 +1,7 @@
 export default function fixMetaTag({ article }) {
-  const { tags } = article.metadata || {}; // Provide a default empty object if article.metadata doesn't exist or is undefined
+  const { tags } = article.metadata || {};
 
-  const tag = tags && tags.length > 0 ? tags[0].sys.id : "Guide"; // Check if tags exist and have length > 0, otherwise, assign 'Guide'
+  const tag = tags && tags.length > 0 ? tags[0].sys.id : "Guide";
 
   const fixedTag =
     tag.charAt(0).toUpperCase() +

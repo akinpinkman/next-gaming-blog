@@ -1,7 +1,7 @@
 import Image from "next/image";
 import fixMetaTag from "@/utils/fixMetaTags"; // Import the fixMetaTag function correctly
 
-export default function Article({ article, isFirst, isFeature }) {
+export default function Article({ article, isFirst }) {
   const { heading, subtitle, slug, featureImage, articleDate, author } =
     article.fields;
 
@@ -15,8 +15,8 @@ export default function Article({ article, isFirst, isFeature }) {
         <Image
           src={image}
           alt={heading}
-          width={isFeature ? featureWidth : imageWidth}
-          height={isFeature ? featureHeight : imageHeight}
+          width={imageWidth}
+          height={imageHeight}
           priority
         />
         <li

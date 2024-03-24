@@ -2,6 +2,9 @@ import ArticleCard from "./ArticleCard";
 import ReleaseDateTracker from "./ReleaseDateTracker";
 
 export default function LatestArticles({ articles, games }) {
+  const filteredArticles = articles.filter((article) =>
+    article.metadata.tags.some((tag) => tag.sys.id !== "nextGamingOriginal")
+  );
   return (
     <>
       <div className="flex mt-10 gap-5 justify-center items-baseline">
@@ -12,7 +15,7 @@ export default function LatestArticles({ articles, games }) {
           </div>
 
           <div className="grid grid-cols-2 grid-rows-2 gap-5">
-            {articles.slice(6).map((article) => (
+            {filteredArticles.map((article) => (
               <ArticleCard key={article.sys.id} article={article} />
             ))}
           </div>

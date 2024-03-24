@@ -1,17 +1,22 @@
+import fixMetaTag from "@/utils/fixMetaTags";
 import ArticleCard from "./ArticleCard";
 import ReleaseDateTracker from "./ReleaseDateTracker";
 
 export default function Hero({ articles }) {
-  // console.log(articles[1].metadata.tags[0].sys.id);
+  // Filter articles that have the "nextGamingOriginal" tag
+  const filteredArticles = articles.filter((article) =>
+    article.metadata.tags.some((tag) => tag.sys.id === "nextGamingOriginal")
+  );
+
   return (
     <>
       <div className="flex justify-center gap-5">
-        {articles.slice(0, 2).map((article) => (
+        {filteredArticles.slice(0, 2).map((article) => (
           <ArticleCard key={article.sys.id} article={article} isFirst={true} />
         ))}
       </div>
       <div className="flex gap-5 justify-center ">
-        {articles.slice(2, 6).map((article) => (
+        {filteredArticles.slice(1, 5).map((article) => (
           <ArticleCard key={article.sys.id} article={article} />
         ))}
       </div>
