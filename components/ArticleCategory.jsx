@@ -24,7 +24,6 @@ export default function ArticleCategory({
             ))}
           </div>
         </div>
-        <ReleaseDateTracker games={games} />
       </div>
     </>
   );

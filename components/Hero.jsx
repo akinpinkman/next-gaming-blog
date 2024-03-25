@@ -1,6 +1,4 @@
-import fixMetaTag from "@/utils/fixMetaTags";
 import ArticleCard from "./ArticleCard";
-import ReleaseDateTracker from "./ReleaseDateTracker";
 
 export default function Hero({ articles }) {
   const filteredArticles = articles.filter((article) =>
