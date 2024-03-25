@@ -1,17 +1,18 @@
 import ArticleCard from "./ArticleCard";
 import ReleaseDateTracker from "./ReleaseDateTracker";
 
-export default function LatestArticles({ articles, games }) {
+export default function ArticleCategory({ articles, games, header }) {
   const filteredArticles = articles.filter((article) =>
     article.metadata.tags.some((tag) => tag.sys.id !== "nextGamingOriginal")
   );
+
   return (
     <>
       <div className="flex mt-10 gap-5 justify-center items-baseline">
         <div>
           <div className="flex items-center gap-5">
             <span className="bg-blue-500 w-5 h-5"></span>
-            <h1 className="text-xl font-bold">Latest Articles</h1>
+            <h1 className="text-xl font-bold">{header}</h1>
           </div>
 
           <div className="grid grid-cols-2 grid-rows-2 gap-5">

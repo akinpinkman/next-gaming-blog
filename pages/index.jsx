@@ -1,7 +1,7 @@
 import { fetchArticlesAndGames } from "@/pages/api/hello";
 import Hero from "@/components/Hero";
-import LatestArticles from "@/components/LatestArticles";
 import Head from "next/head";
+import ArticleCategory from "@/components/ArticleCategory";
 
 export async function getStaticProps() {
   const { articles, games } = await fetchArticlesAndGames();
@@ -22,7 +22,11 @@ export default function Home({ articles, games }) {
           <title>Next Gaming</title>
         </Head>
         <Hero articles={articles} />
-        <LatestArticles articles={articles} games={games} />
+        <ArticleCategory
+          articles={articles}
+          games={games}
+          header="Latest Articles"
+        />
         {/* <ReleaseDateTracker games={games} /> */}
       </section>
     </main>
