@@ -1,5 +1,5 @@
 import Image from "next/image";
-import fixMetaTag from "@/utils/fixMetaTags"; // Import the fixMetaTag function correctly
+import fixMetaTag from "@/utils/fixMetaTags";
 
 export default function Article({ article, isFirst }) {
   const { heading, subtitle, slug, featureImage, articleDate, author } =

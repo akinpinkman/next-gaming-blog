@@ -15,6 +15,14 @@ export async function getStaticProps() {
 }
 
 export default function Home({ articles, games }) {
+  const latestArticlesFilter = (article) =>
+    !article.metadata.tags.some(
+      (tag) => tag.sys.id === "nextGamingOriginal" || tag.sys.id === "news"
+    );
+
+  const latestNewsFilter = (article) =>
+    article.metadata.tags.some((tag) => tag.sys.id === "news");
+
   return (
     <main>
       <section>
@@ -25,9 +33,15 @@ export default function Home({ articles, games }) {
         <ArticleCategory
           articles={articles}
           games={games}
-          header="Latest Articles"
+          categoryTitle="Latest Articles"
+          filterFunction={latestArticlesFilter}
         />
-        {/* <ReleaseDateTracker games={games} /> */}
+        <ArticleCategory
+          articles={articles}
+          games={games}
+          categoryTitle="Latest News"
+          filterFunction={latestNewsFilter}
+        />
       </section>
     </main>
   );

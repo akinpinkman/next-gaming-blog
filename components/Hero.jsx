@@ -3,7 +3,6 @@ import ArticleCard from "./ArticleCard";
 import ReleaseDateTracker from "./ReleaseDateTracker";
 
 export default function Hero({ articles }) {
-  // Filter articles that have the "nextGamingOriginal" tag
   const filteredArticles = articles.filter((article) =>
     article.metadata.tags.some((tag) => tag.sys.id === "nextGamingOriginal")
   );

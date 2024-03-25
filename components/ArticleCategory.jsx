@@ -1,10 +1,13 @@
 import ArticleCard from "./ArticleCard";
 import ReleaseDateTracker from "./ReleaseDateTracker";
 
-export default function ArticleCategory({ articles, games, header }) {
-  const filteredArticles = articles.filter((article) =>
-    article.metadata.tags.some((tag) => tag.sys.id !== "nextGamingOriginal")
-  );
+export default function ArticleCategory({
+  articles,
+  games,
+  categoryTitle,
+  filterFunction,
+}) {
+  const filteredArticles = articles.filter(filterFunction);
 
   return (
     <>
@@ -12,7 +15,7 @@ export default function ArticleCategory({ articles, games, header }) {
         <div>
           <div className="flex items-center gap-5">
             <span className="bg-blue-500 w-5 h-5"></span>
-            <h1 className="text-xl font-bold">{header}</h1>
+            <h1 className="text-xl font-bold">{categoryTitle}</h1>
           </div>
 
           <div className="grid grid-cols-2 grid-rows-2 gap-5">
@@ -25,20 +28,4 @@ export default function ArticleCategory({ articles, games, header }) {
       </div>
     </>
   );
-}
-
-{
-  /* <div className="flex ml-[315px] mt-10 space-x-[710px]">
-<div className="flex flex-col gap-5">
-  <div className="flex items-center gap-5">
-    <span className="bg-blue-500 w-5 h-5"></span>
-    <h1 className="text-xl font-bold">Latest Articles</h1>
-  </div>
-  {articles.slice(6).map((article) => (
-    <ArticleCard key={article.sys.id} article={article} />
-  ))}
-</div>
-
-<ReleaseDateTracker games={games} />
-</div> */
 }

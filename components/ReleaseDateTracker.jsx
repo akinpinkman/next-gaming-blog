@@ -11,13 +11,10 @@ export default function ReleaseDateTracker({ games }) {
     return number < 10 ? `0${number}` : number;
   };
 
-  // Renderer callback with condition
   const renderer = ({ days, hours, minutes, completed }) => {
     if (completed) {
-      // Render a completed state
       return <Completionist />;
     } else {
-      // Render a countdown
       return (
         <span className="text-2xl">
           {addLeadingZero(days)}:{addLeadingZero(hours)}:
