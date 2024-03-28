@@ -5,14 +5,13 @@ import Link from "next/link";
 export default function Article({ article, isFirst }) {
   const { heading, subtitle, slug, featureImage, articleDate, author } =
     article.fields;
-
   const image = `https:${featureImage.fields.file.url}`;
   const imageWidth = isFirst ? 920 : 450;
   const imageHeight = isFirst ? 300 : 225;
 
   return (
     <article className="mt-10 relative">
-      <Link href={`/article/${slug}`} passHref>
+      <Link href={`/article/[slug]`} as={`/article/${slug}`} passHref>
         <div className="mt-10 relative" style={{ textDecoration: "none" }}>
           <div style={{ position: "relative" }}>
             <Image

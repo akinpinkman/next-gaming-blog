@@ -1,17 +1,46 @@
-import { useRouter } from "next/router";
+import { createClient } from "contentful";
+import * as contentful from "contentful";
 
-const Article = () => {
-  const router = useRouter();
-  const { slug, heading, subtitle } = router.query;
-  console.log();
+const client = contentful.createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+});
 
-  return (
-    <>
-      <p>This is the page for post: {slug}</p>
-      <h1>{heading}</h1>
-      <h2>{subtitle}</h2>
-    </>
-  );
+export const getStaticPaths = async () => {
+  const res = await client.getEntries({
+    content_type: "article",
+  });
+
+  const paths = res.items.map((item) => {
+    return {
+      params: { slug: item.fields.slug },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
 };
 
-export default Article;
+export const getStaticProps = async ({ params }) => {
+  const { items } = await client.getEntries({
+    content_type: "article",
+    "fields.slug": params.slug,
+  });
+
+  return {
+    props: { article: items[0] },
+  };
+};
+
+export default function RecipeDetails({ article }) {
+  console.log(article);
+
+  return (
+    <div>
+      <h1>{article.fields.heading}</h1>
+      <p>{article.fields.subtitle}</p>
+    </div>
+  );
+}
