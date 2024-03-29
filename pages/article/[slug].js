@@ -1,5 +1,8 @@
 import { createClient } from "contentful";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import * as contentful from "contentful";
+import Image from "next/image";
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -34,13 +37,64 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-export default function RecipeDetails({ article }) {
+const RICHTEXT_CONFIGURES = {
+  renderNode: {
+    [BLOCKS.HEADING_2]: (node, children) => {
+      return <h2 className="text-3xl">{children}</h2>;
+    },
+    [BLOCKS.HEADING_3]: (node, children) => {
+      return <h3 className="text-2xl">{children}</h3>;
+    },
+    [BLOCKS.HEADING_4]: (node, children) => {
+      return <h4 className="text-xl">{children}</h4>;
+    },
+    [BLOCKS.UL_LIST]: (node, children) => {
+      return <ul className="">{children}</ul>;
+    },
+    [BLOCKS.LIST_ITEM]: (node, children) => {
+      return <li className="list-disc">{children}</li>;
+    },
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      return <p className="text-base">{children}</p>;
+    },
+    [BLOCKS.OL_LIST]: (node, children) => {
+      return <ol className="list-decimal">{children}</ol>;
+    },
+    // [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+    //   return <Image />;
+    // },
+    [INLINES.HYPERLINK]: (node, children) => {
+      return (
+        <a className="text-base font-bold text-blue-400" href={node.data.uri}>
+          {children}
+        </a>
+      );
+    },
+  },
+};
+
+export default function ArticleDetails({ article }) {
+  const image = `https:${article.fields.featureImage.fields.file.url}`;
   console.log(article);
 
   return (
-    <div>
-      <h1>{article.fields.heading}</h1>
-      <p>{article.fields.subtitle}</p>
-    </div>
+    <main className="flex flex-col items-center">
+      <h1 className="pb-3">{article.fields.heading}</h1>
+      <h2 className="pb-3">{article.fields.subtitle}</h2>
+      <p className="pb-3">
+        {article.fields.author.fields.name} -{" "}
+        {/*Make a util function to format date */}
+        {article.fields.articleDate.match(/^\d{4}-\d{2}-\d{2}/)[0]}
+      </p>
+      <Image
+        src={image}
+        alt={article.fields.featureImage.fields.title}
+        width={800}
+        height={400}
+      />
+      <div>
+        {documentToReactComponents(article.fields.content, RICHTEXT_CONFIGURES)}
+      </div>
+    </main>
   );
 }
