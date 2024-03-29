@@ -49,20 +49,29 @@ const RICHTEXT_CONFIGURES = {
       return <h4 className="text-xl">{children}</h4>;
     },
     [BLOCKS.UL_LIST]: (node, children) => {
-      return <ul className="">{children}</ul>;
+      return <ul className="list-disc pl-6">{children}</ul>; // Apply styling here
     },
     [BLOCKS.LIST_ITEM]: (node, children) => {
-      return <li className="list-disc">{children}</li>;
+      return <li className="">{children}</li>;
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <p className="text-base">{children}</p>;
     },
     [BLOCKS.OL_LIST]: (node, children) => {
-      return <ol className="list-decimal">{children}</ol>;
+      return <ol className="list-decimal pl-6">{children}</ol>;
     },
-    // [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-    //   return <Image />;
-    // },
+    [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+      console.log(node);
+
+      return (
+        <Image
+          src={`https:${node.data.target.fields.file.url}`}
+          alt={node.data.target.fields.title}
+          width={700}
+          height={300}
+        />
+      );
+    },
     [INLINES.HYPERLINK]: (node, children) => {
       return (
         <a className="text-base font-bold text-blue-400" href={node.data.uri}>
@@ -75,7 +84,7 @@ const RICHTEXT_CONFIGURES = {
 
 export default function ArticleDetails({ article }) {
   const image = `https:${article.fields.featureImage.fields.file.url}`;
-  console.log(article);
+  // console.log(article);
 
   return (
     <main className="flex flex-col items-center">
