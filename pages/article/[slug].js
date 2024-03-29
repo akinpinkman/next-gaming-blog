@@ -87,23 +87,25 @@ export default function ArticleDetails({ article }) {
   // console.log(article);
 
   return (
-    <main className="flex flex-col items-center">
-      <h1 className="pb-3">{article.fields.heading}</h1>
-      <h2 className="pb-3">{article.fields.subtitle}</h2>
-      <p className="pb-3">
-        {article.fields.author.fields.name} -{" "}
-        {/*Make a util function to format date */}
-        {article.fields.articleDate.match(/^\d{4}-\d{2}-\d{2}/)[0]}
-      </p>
-      <Image
-        src={image}
-        alt={article.fields.featureImage.fields.title}
-        width={800}
-        height={400}
-      />
-      <div>
+    <main className="flex flex-col items-center w-full">
+      <section className="w-2/3">
+        <h1 className="text-4xl pb-3">{article.fields.heading}</h1>
+        <h2 className="text-lg pb-3">{article.fields.subtitle}</h2>
+        <p className="pb-3">
+          {article.fields.author.fields.name} -{" "}
+          {/*Make a util function to format date */}
+          {article.fields.articleDate.match(/^\d{4}-\d{2}-\d{2}/)[0]}
+        </p>
+        <Image
+          src={image}
+          alt={article.fields.featureImage.fields.title}
+          width={800}
+          height={400}
+        />
+      </section>
+      <article className="w-2/3">
         {documentToReactComponents(article.fields.content, RICHTEXT_CONFIGURES)}
-      </div>
+      </article>
     </main>
   );
 }
