@@ -67,8 +67,10 @@ const RICHTEXT_CONFIGURES = {
         <Image
           src={`https:${node.data.target.fields.file.url}`}
           alt={node.data.target.fields.title}
-          width={700}
-          height={300}
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "55%", height: "auto" }}
         />
       );
     },
@@ -99,13 +101,16 @@ export default function ArticleDetails({ article }) {
         <Image
           src={image}
           alt={article.fields.featureImage.fields.title}
-          width={800}
-          height={400}
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "90%", height: "auto" }}
         />
       </section>
-      <article className="w-2/3">
+      <article className="w-2/3 pr-[166px]">
         {documentToReactComponents(article.fields.content, RICHTEXT_CONFIGURES)}
       </article>
     </main>
   );
 }
+// w-2/3
