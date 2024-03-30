@@ -40,13 +40,13 @@ export const getStaticProps = async ({ params }) => {
 const RICHTEXT_CONFIGURES = {
   renderNode: {
     [BLOCKS.HEADING_2]: (node, children) => {
-      return <h2 className="text-3xl">{children}</h2>;
+      return <h2 className="text-3xl pb-5">{children}</h2>;
     },
     [BLOCKS.HEADING_3]: (node, children) => {
-      return <h3 className="text-2xl">{children}</h3>;
+      return <h3 className="text-2xl pb-5">{children}</h3>;
     },
     [BLOCKS.HEADING_4]: (node, children) => {
-      return <h4 className="text-xl">{children}</h4>;
+      return <h4 className="text-xl pb-5">{children}</h4>;
     },
     [BLOCKS.UL_LIST]: (node, children) => {
       return <ul className="list-disc pl-6">{children}</ul>; // Apply styling here
@@ -55,7 +55,7 @@ const RICHTEXT_CONFIGURES = {
       return <li className="">{children}</li>;
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      return <p className="text-base">{children}</p>;
+      return <p className="text-base pb-5">{children}</p>;
     },
     [BLOCKS.OL_LIST]: (node, children) => {
       return <ol className="list-decimal pl-6">{children}</ol>;
@@ -70,6 +70,7 @@ const RICHTEXT_CONFIGURES = {
           width={0}
           height={0}
           sizes="100vw"
+          className="pb-5"
           style={{ width: "55%", height: "auto" }}
         />
       );
@@ -89,8 +90,8 @@ export default function ArticleDetails({ article }) {
   // console.log(article);
 
   return (
-    <main className="flex flex-col items-center w-full">
-      <section className="w-2/3">
+    <main className="flex flex-col items-center w-full mt-20">
+      <section className="w-2/3 pb-5">
         <h1 className="text-4xl pb-3">{article.fields.heading}</h1>
         <h2 className="text-lg pb-3">{article.fields.subtitle}</h2>
         <p className="pb-3">
