@@ -4,6 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import * as contentful from "contentful";
 import Image from "next/image";
 import Head from "next/head";
+import Layout from "@/components/Layout";
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -91,8 +92,10 @@ export default function ArticleDetails({ article }) {
   // console.log(article);
 
   return (
-    <Head>
-      <title>Next Gaming | {article.fields.heading}</title>
+    <>
+      <Head>
+        <title>Next Gaming | {article.fields.heading}</title>
+      </Head>
       <main className="flex flex-col items-center w-full mt-20">
         <section className="w-2/3 pb-5">
           <h1 className="text-4xl pb-3">{article.fields.heading}</h1>
@@ -118,7 +121,6 @@ export default function ArticleDetails({ article }) {
           )}
         </article>
       </main>
-    </Head>
+    </>
   );
 }
-// w-2/3
