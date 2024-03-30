@@ -3,6 +3,7 @@ import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import * as contentful from "contentful";
 import Image from "next/image";
+import Head from "next/head";
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -90,28 +91,34 @@ export default function ArticleDetails({ article }) {
   // console.log(article);
 
   return (
-    <main className="flex flex-col items-center w-full mt-20">
-      <section className="w-2/3 pb-5">
-        <h1 className="text-4xl pb-3">{article.fields.heading}</h1>
-        <h2 className="text-lg pb-3">{article.fields.subtitle}</h2>
-        <p className="pb-3">
-          {article.fields.author.fields.name} -{" "}
-          {/*Make a util function to format date */}
-          {article.fields.articleDate.match(/^\d{4}-\d{2}-\d{2}/)[0]}
-        </p>
-        <Image
-          src={image}
-          alt={article.fields.featureImage.fields.title}
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: "90%", height: "auto" }}
-        />
-      </section>
-      <article className="w-2/3 pr-[166px]">
-        {documentToReactComponents(article.fields.content, RICHTEXT_CONFIGURES)}
-      </article>
-    </main>
+    <Head>
+      <title>Next Gaming | {article.fields.heading}</title>
+      <main className="flex flex-col items-center w-full mt-20">
+        <section className="w-2/3 pb-5">
+          <h1 className="text-4xl pb-3">{article.fields.heading}</h1>
+          <h2 className="text-lg pb-3">{article.fields.subtitle}</h2>
+          <p className="pb-3">
+            {article.fields.author.fields.name} -{" "}
+            {/*Make a util function to format date */}
+            {article.fields.articleDate.match(/^\d{4}-\d{2}-\d{2}/)[0]}
+          </p>
+          <Image
+            src={image}
+            alt={article.fields.featureImage.fields.title}
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "90%", height: "auto" }}
+          />
+        </section>
+        <article className="w-2/3 pr-[166px]">
+          {documentToReactComponents(
+            article.fields.content,
+            RICHTEXT_CONFIGURES
+          )}
+        </article>
+      </main>
+    </Head>
   );
 }
 // w-2/3
