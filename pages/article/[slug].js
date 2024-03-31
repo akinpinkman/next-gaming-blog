@@ -89,7 +89,6 @@ const RICHTEXT_CONFIGURES = {
 
 export default function ArticleDetails({ article }) {
   const image = `https:${article.fields.featureImage.fields.file.url}`;
-  // console.log(article);
 
   return (
     <>

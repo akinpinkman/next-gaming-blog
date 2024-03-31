@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "REVAMPED";
+  src: url(../fonts/REVAMPED.OTF);
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+}
