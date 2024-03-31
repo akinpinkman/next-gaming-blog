@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
     <header className="bg-[#171717] h-auto pt-5 font font-REVAMPED text-5xl text-white">
@@ -8,16 +10,16 @@ export default function Header() {
       <nav>
         <ul className="flex text-base justify-center gap-5 py-5 font-Oswald font-bold list-disc">
           <li className="pr-3 list-none">
-            <a href="">HOME</a>
+            <Link href="">HOME</Link>
           </li>
           <li className="pr-3 pl-2">
-            <a href="">FORTNITE</a>
+            <Link href="">FORTNITE</Link>
           </li>
           <li className="pr-3 pl-2">
-            <a href="">DIABLO IV</a>
+            <Link href="">DIABLO IV</Link>
           </li>
           <li className="pr-3 pl-2">
-            <a href="">RELEASE DATES</a>
+            <Link href="">RELEASE DATES</Link>
           </li>
         </ul>
       </nav>

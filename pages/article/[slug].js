@@ -4,7 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import * as contentful from "contentful";
 import Image from "next/image";
 import Head from "next/head";
-import Layout from "@/components/Layout";
+import Link from "next/link";
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -51,7 +51,7 @@ const RICHTEXT_CONFIGURES = {
       return <h4 className="text-xl pb-5">{children}</h4>;
     },
     [BLOCKS.UL_LIST]: (node, children) => {
-      return <ul className="list-disc pl-6">{children}</ul>; // Apply styling here
+      return <ul className="list-disc pl-6">{children}</ul>;
     },
     [BLOCKS.LIST_ITEM]: (node, children) => {
       return <li className="">{children}</li>;
@@ -63,8 +63,6 @@ const RICHTEXT_CONFIGURES = {
       return <ol className="list-decimal pl-6">{children}</ol>;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      console.log(node);
-
       return (
         <Image
           src={`https:${node.data.target.fields.file.url}`}
@@ -79,9 +77,12 @@ const RICHTEXT_CONFIGURES = {
     },
     [INLINES.HYPERLINK]: (node, children) => {
       return (
-        <a className="text-base font-bold text-blue-400" href={node.data.uri}>
+        <Link
+          className="text-base font-bold text-blue-400"
+          href={node.data.uri}
+        >
           {children}
-        </a>
+        </Link>
       );
     },
   },
