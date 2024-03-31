@@ -18,7 +18,7 @@ export async function getStaticProps() {
 export default function Home({ articles, games }) {
   const latestArticlesFilter = (article) =>
     !article.metadata.tags.some(
-      (tag) => tag.sys.id === "nextGamingOriginal" || tag.sys.id === "news"
+      (tag) => tag.sys.id === "nextgamingoriginals" || tag.sys.id === "news"
     );
 
   const latestNewsFilter = (article) =>

@@ -10,16 +10,16 @@ export default function Header() {
       <nav>
         <ul className="flex text-base justify-center gap-5 py-5 font-Oswald font-bold list-disc">
           <li className="pr-3 list-none">
-            <Link href="">HOME</Link>
+            <Link href="/">HOME</Link>
           </li>
           <li className="pr-3 pl-2">
-            <Link href="">FORTNITE</Link>
+            <Link href="/tag/fortnite">FORTNITE</Link>
           </li>
           <li className="pr-3 pl-2">
-            <Link href="">DIABLO IV</Link>
+            <Link href="/tag/diablo-4">DIABLO IV</Link>
           </li>
           <li className="pr-3 pl-2">
-            <Link href="">RELEASE DATES</Link>
+            <Link href="/tag/relase-date">RELEASE DATES</Link>
           </li>
         </ul>
       </nav>

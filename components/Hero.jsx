@@ -2,7 +2,7 @@ import ArticleCard from "./ArticleCard";
 
 export default function Hero({ articles }) {
   const filteredArticles = articles.filter((article) =>
-    article.metadata.tags.some((tag) => tag.sys.id === "nextGamingOriginal")
+    article.metadata.tags.some((tag) => tag.sys.id === "nextgamingoriginals")
   );
 
   return (
