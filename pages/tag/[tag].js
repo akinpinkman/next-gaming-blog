@@ -41,10 +41,12 @@ export const getStaticProps = async ({ params }) => {
 
 export default function TagPage({ articles }) {
   return (
-    <article>
+    <section className="flex flex-wrap items-center justify-center gap-5">
       {articles.map((article) => (
-        <ArticleCard key={article.sys.id} article={article} />
+        <div key={article.sys.id} className="">
+          <ArticleCard article={article} />
+        </div>
       ))}
-    </article>
+    </section>
   );
 }
