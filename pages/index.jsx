@@ -32,7 +32,7 @@ export default function Home({ articles, games }) {
         </Head>
         <Hero articles={articles} />
       </section>
-      <section className="laptop:flex items-baseline justify-center">
+      <section className="laptop:flex items-baseline justify-center px-5">
         <div>
           <ArticleCategory
             articles={articles}
