@@ -10,7 +10,7 @@ export default function Article({ article, isFirst }) {
   const imageHeight = isFirst ? 300 : 225;
 
   return (
-    <article className="mt-10 relative">
+    <article className="laptop:mt-10 relative">
       <div className="mt-10 relative" style={{ textDecoration: "none" }}>
         <div style={{ position: "relative" }}>
           <Link href={`/article/[slug]`} as={`/article/${slug}`} passHref>
@@ -31,16 +31,16 @@ export default function Article({ article, isFirst }) {
               as={`/tag/${article.metadata.tags[0].sys.id}`}
               passHref
             >
-              <span className="font-bold text-white">
+              <span className="hidden laptop:inline-block font-bold text-white">
                 {fixMetaTag({ article })}
               </span>
             </Link>
           </li>
         </div>
         <Link href={`/article/[slug]`} as={`/article/${slug}`} passHref>
-          <h1 className="text-xl">{heading}</h1>
+          <h1 className="tablet:text-xl">{heading}</h1>
         </Link>
-        <h2 className="text-lg">{subtitle}</h2>
+        <h2 className="tablet:text-lg">{subtitle}</h2>
       </div>
     </article>
   );
