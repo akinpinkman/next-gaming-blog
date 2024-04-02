@@ -1,6 +1,6 @@
 # Welcome to Next Gaming Blog!
 
-https://github.com/akinpinkman/next-gaming-blog/blob/master/public/next-gaming-header.gif
+![Next Gaming Blog](https://github.com/akinpinkman/next-gaming-blog/blob/master/public/next-gaming-header.gif)
 
 Hey there, gamer! Welcome to Next Gaming, your go-to spot for all things gaming. Whether you're looking for handy guides, juicy news, or just some fun feature articles to dive into between gaming sessions, you're in the right place. We've got you covered with everything from leveling up in your favorite games to staying up-to-date on the latest releases and industry buzz.
 
