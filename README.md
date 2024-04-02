@@ -1,5 +1,7 @@
 # Welcome to Next Gaming Blog!
 
+https://github.com/akinpinkman/next-gaming-blog/blob/master/public/next-gaming-header.gif
+
 Hey there, gamer! Welcome to Next Gaming, your go-to spot for all things gaming. Whether you're looking for handy guides, juicy news, or just some fun feature articles to dive into between gaming sessions, you're in the right place. We've got you covered with everything from leveling up in your favorite games to staying up-to-date on the latest releases and industry buzz.
 
 At Next Gaming, we're all about keeping you in the loop, especially when it comes to those big upcoming game releases. Our Upcoming Games Tracker lets you know exactly how many days you have left to wait until your most anticipated titles hit the shelves. So, grab your controller, settle in, and let's explore the world of gaming together!
