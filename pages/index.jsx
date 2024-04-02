@@ -12,6 +12,7 @@ export async function getStaticProps() {
       articles,
       games,
     },
+    revalidate: 1000,
   };
 }
 
