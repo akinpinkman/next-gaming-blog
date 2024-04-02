@@ -15,13 +15,13 @@ export const getStaticPaths = async () => {
   const paths = res.items.map((item) => {
     return {
       params: { tag: item.metadata.tags[0].sys.id },
-      revalidate: 1,
     };
   });
 
   return {
     paths,
     fallback: false,
+    revalidate: 1,
   };
 };
 
