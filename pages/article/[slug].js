@@ -96,10 +96,14 @@ export default function ArticleDetails({ article }) {
       <Head>
         <title>Next Gaming | {article.fields.heading}</title>
       </Head>
-      <main className="flex flex-col items-center w-full mt-20">
-        <section className="w-2/3 pb-5">
-          <h1 className="text-4xl pb-3">{article.fields.heading}</h1>
-          <h2 className="text-lg pb-3">{article.fields.subtitle}</h2>
+      <main className="flex flex-col items-center w-full tablet:mt-20 mobile:mt-8">
+        <section className="tablet:w-2/3 mobile:pl-8 pb-5">
+          <h1 className="mobile:text-2xl tablet:text-3xl laptop:text-4xl pb-3">
+            {article.fields.heading}
+          </h1>
+          <h2 className="mobile:text-base tablet:text-lg laptop:text-xl pb-3">
+            {article.fields.subtitle}
+          </h2>
           <p className="pb-3">
             {article.fields.author.fields.name} -{" "}
             {/*Make a util function to format date */}
@@ -114,7 +118,7 @@ export default function ArticleDetails({ article }) {
             style={{ width: "90%", height: "auto" }}
           />
         </section>
-        <article className="w-2/3 pr-[166px]">
+        <article className="tablet:w-2/3 tablet:pr-[166px] mobile:px-3">
           {documentToReactComponents(
             article.fields.content,
             RICHTEXT_CONFIGURES
