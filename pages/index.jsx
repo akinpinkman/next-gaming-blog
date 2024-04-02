@@ -25,7 +25,7 @@ export default function Home({ articles, games }) {
     article.metadata.tags.some((tag) => tag.sys.id === "news");
 
   return (
-    <main>
+    <>
       <section>
         <Head>
           <title>Next Gaming</title>
@@ -49,6 +49,6 @@ export default function Home({ articles, games }) {
         </div>
         <ReleaseDateTracker games={games} />
       </section>
-    </main>
+    </>
   );
 }

@@ -6,7 +6,7 @@ export default function Hero({ articles }) {
   );
 
   return (
-    <div>
+    <>
       <div className="tablet:flex justify-center gap-11 px-8">
         {filteredArticles.slice(0, 2).map((article) => (
           <ArticleCard key={article.sys.id} article={article} isFirst={true} />
@@ -17,6 +17,6 @@ export default function Hero({ articles }) {
           <ArticleCard key={article.sys.id} article={article} />
         ))}
       </div>
-    </div>
+    </>
   );
 }
