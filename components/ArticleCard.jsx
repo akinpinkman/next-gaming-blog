@@ -10,7 +10,7 @@ export default function Article({ article, isFirst }) {
   const imageHeight = isFirst ? 300 : 225;
 
   return (
-    <article className="laptop:mt-10 relative">
+    <article className="laptop:mt-10 relative transform hover:scale-105 transition-transform duration-300 ease-in-out">
       <div className="mt-10 relative" style={{ textDecoration: "none" }}>
         <div style={{ position: "relative" }}>
           <Link href={`/article/[slug]`} as={`/article/${slug}`} passHref>
@@ -38,7 +38,7 @@ export default function Article({ article, isFirst }) {
           </li>
         </div>
         <Link href={`/article/[slug]`} as={`/article/${slug}`} passHref>
-          <h1 className="tablet:text-xl">{heading}</h1>
+          <h1 className="tablet:text-xl ">{heading}</h1>
         </Link>
         <h2 className="tablet:text-lg">{subtitle}</h2>
       </div>

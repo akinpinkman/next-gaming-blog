@@ -11,3 +11,119 @@
   font-family: "Oswald";
   src: url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 }
+
+.neon-text {
+  animation: flicker 6s linear infinite;
+}
+
+@keyframes flicker {
+  0% {
+    /*3*/
+    opacity: 25%;
+    color: transparent;
+    text-shadow: 0 0 0.3vw #3b82f6, 0 0 0.521vw #3b82f6;
+  }
+  3.3% {
+    /*3*/
+    opacity: 25%;
+    color: transparent;
+    text-shadow: 0 0 0.3vw #3b82f6, 0 0 0.521vw #3b82f6;
+  }
+  3.67% {
+    /*2*/
+    color: white;
+    text-shadow: 0 0 0.3vw #fff, 0 0 0.521vw #fff, 0 0 1.094vw #fff,
+      0 0 2.188vw #3b82f6, 0 0 4.271vw #3b82f6, 0 0 4.792vw #3b82f6,
+      0 0 5.313vw #3b82f6, 0 0 7.865vw #3b82f6;
+  }
+  10% {
+    /*1*/
+    opacity: 75%;
+    color: white;
+    text-shadow: 0 0 1vw #3b82f6, 0 0 2vw #3b82f6, 0 0 2.5vw #3b82f6,
+      0 0 3vw #3b82f6, 0 0 4vw #3b82f6;
+  }
+  36.7% {
+    /*1*/
+    opacity: 75%;
+    color: white;
+    text-shadow: 0 0 1vw #3b82f6, 0 0 2vw #3b82f6, 0 0 2.5vw #3b82f6,
+      0 0 3vw #3b82f6, 0 0 4vw #3b82f6;
+  }
+  37.3% {
+    /*3*/
+    opacity: 25%;
+    color: transparent;
+    text-shadow: 0 0 0.3vw #3b82f6, 0 0 0.521vw #3b82f6;
+  }
+  38% {
+    /*1*/
+    opacity: 75%;
+    color: white;
+    text-shadow: 0 0 1vw #3b82f6, 0 0 2vw #3b82f6, 0 0 2.5vw #3b82f6,
+      0 0 3vw #3b82f6, 0 0 4vw #3b82f6;
+  }
+  40.67% {
+    /*3*/
+    opacity: 25%;
+    color: transparent;
+    text-shadow: 0 0 0.3vw #3b82f6, 0 0 0.521vw #3b82f6;
+  }
+  41.33% {
+    /*1*/
+    opacity: 75%;
+    color: white;
+    text-shadow: 0 0 1vw #3b82f6, 0 0 2vw #3b82f6, 0 0 2.5vw #3b82f6,
+      0 0 3vw #3b82f6, 0 0 4vw #3b82f6;
+  }
+  60% {
+    /*2*/
+    color: white;
+    text-shadow: 0 0 0.3vw #fff, 0 0 0.521vw #fff, 0 0 1.094vw #fff,
+      0 0 2.188vw #3b82f6, 0 0 4.271vw #3b82f6, 0 0 4.792vw #3b82f6,
+      0 0 5.313vw #3b82f6, 0 0 7.865vw #3b82f6;
+  }
+  80% {
+    /*1*/
+    opacity: 75%;
+    color: white;
+    text-shadow: 0 0 1vw #3b82f6, 0 0 2vw #3b82f6, 0 0 2.5vw #3b82f6,
+      0 0 3vw #3b82f6, 0 0 4vw #3b82f6;
+  }
+  93.3% {
+    /*2*/
+    color: white;
+    text-shadow: 0 0 0.3vw #fff, 0 0 0.521vw #fff, 0 0 1.094vw #fff,
+      0 0 2.188vw #3b82f6, 0 0 4.271vw #3b82f6, 0 0 4.792vw #3b82f6,
+      0 0 5.313vw #3b82f6, 0 0 7.865vw #3b82f6;
+  }
+  93.5% {
+    /*1*/
+    opacity: 75%;
+    color: white;
+    text-shadow: 0 0 1vw #3b82f6, 0 0 2vw #3b82f6, 0 0 2.5vw #3b82f6,
+      0 0 3vw #3b82f6, 0 0 4vw #3b82f6;
+  }
+  98% {
+    /*3*/
+    opacity: 25%;
+    color: transparent;
+    text-shadow: 0 0 0.3vw #3b82f6, 0 0 0.521vw #3b82f6;
+  }
+  100% {
+    /*1*/
+    opacity: 75%;
+    color: white;
+    text-shadow: 0 0 1vw #3b82f6, 0 0 2vw #3b82f6, 0 0 2.5vw #3b82f6,
+      0 0 3vw #3b82f6, 0 0 4vw #3b82f6;
+  }
+}
+
+b {
+  font-weight: 700;
+}
+/*book weight NON ITALIC*/
+i {
+  font-style: normal;
+  font-weight: 100;
+}
